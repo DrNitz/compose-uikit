@@ -71,7 +71,7 @@ internal fun rememberCatalog(): List<CatalogEntry> = remember {
         CatalogEntry(
             id = "clock",
             name = "Clock",
-            summary = "Self-ticking time display in two sizes.",
+            summary = "Neumorphic analog dial, driven by the device clock.",
             gradient = listOf(Color(0xFF00696E), Color(0xFF4FB3B8)),
             content = { m -> DemoClock(m) },
         ),
@@ -121,7 +121,7 @@ private fun DemoTopAppBar(modifier: Modifier) {
 @Composable
 private fun DemoClock(modifier: Modifier) {
     Column(modifier, horizontalAlignment = Alignment.CenterHorizontally) {
-        ComposeKitClock(label = "Local time")
+        ComposeKitClock(showSeconds = true)
         Spacer(Modifier.height(14.dp))
         ComposeKitClockPill()
     }

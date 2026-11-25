@@ -191,6 +191,16 @@ Because `jvmTarget` defaults to `compileOptions.targetCompatibility`, neither mo
   page automatically, and a tile in the demo gallery
 - Preview media (see `docs/media/MANIFEST.md` for the files to record)
 
+## Credits
+
+`ComposeKitClock` is a Compose reimplementation of a Uiverse.io element:
+
+- **nice-fly-98** by chase2k25 — <https://uiverse.io/chase2k25/nice-fly-98>
+  (MIT License, Copyright (c) chase2k25 (chandu.exe))
+
+The dial's proportions, shadows and colours follow that design. The credit is repeated at the
+top of `lib/src/main/kotlin/com/example/composeuikit/ComposeKitClock.kt`.
+
 ## License
 
 MIT — see `LICENSE`.

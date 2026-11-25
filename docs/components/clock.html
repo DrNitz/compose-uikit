@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ComposeKitClock — Compose UI Kit</title>
-  <meta name="description" content="Self-updating clock.">
+  <meta name="description" content="Neumorphic analog clock: a soft-shaded face with recessed markers, embossed numerals and three hands.">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
     <header class="compact">
       <a class="back" href="../index.html">← All components</a>
       <h1><code>ComposeKitClock</code></h1>
-      <p class="lede">Self-updating clock. Renders the device time and refreshes itself on a ticker, so it keeps counting without the caller driving recomposition.</p>
+      <p class="lede">Neumorphic analog clock: a soft-shaded face with recessed markers, embossed numerals and three hands. The dial is drawn to the design's own proportions, so it stays correct at any size — the geometry is derived from the box it is given rather than hard-coded. It paints its own background, which neumorphism needs: the raised and recessed shadows only read as depth against the surface they sit on, so the component fills its bounds with the base colour. The hands are driven by the device clock. The second hand steps once per second, matching the design's 60-step sweep; the minute and hour hands sweep continuously between ticks.</p>
     </header>
 
     <section>
@@ -32,7 +32,7 @@
           <h2>Usage</h2>
     <div class="block">
       <div class="label"><span>Kotlin</span><button class="copy" data-copy="usage">Copy</button></div>
-      <pre><code id="usage"><span class="t-type">ComposeKitClock</span>(showSeconds = <span class="t-kw">true</span>)</code></pre>
+      <pre><code id="usage"><span class="t-type">ComposeKitClock</span>(size = <span class="t-number">300</span>.dp)</code></pre>
     </div>
         </section>
     <section>
@@ -40,7 +40,9 @@
     <div class="block">
       <div class="label"><span>Kotlin</span><button class="copy" data-copy="demo">Copy</button></div>
       <pre><code id="demo"><span class="t-type">ShowcaseSection</span>(<span class="t-string">"Clock"</span>) {
-        <span class="t-type">ComposeKitClock</span>(label = <span class="t-string">"Local time"</span>, showSeconds = <span class="t-kw">true</span>)
+        <span class="t-type">Row</span>(<span class="t-type">Modifier</span>.fillMaxWidth(), horizontalArrangement = <span class="t-type">Arrangement</span>.<span class="t-type">Center</span>) {
+            <span class="t-type">ComposeKitClock</span>(showSeconds = <span class="t-kw">true</span>)
+        }
     }</code></pre>
     </div>
           <p class="note">This is the block the demo app renders, so it is what produced the preview above.</p>
@@ -51,9 +53,9 @@
             <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
             <tbody>
             <tr><td><code>modifier</code></td><td class="type"><code>Modifier</code></td><td><code>Modifier</code></td><td>—</td></tr>
-            <tr><td><code>showSeconds</code></td><td class="type"><code>Boolean</code></td><td><code>true</code></td><td>tick once per second and show <code>HH:mm:ss</code>; otherwise tick every 10s and show <code>HH:mm</code>.</td></tr>
-            <tr><td><code>use24Hour</code></td><td class="type"><code>Boolean</code></td><td><code>true</code></td><td><code>true</code> for <code>HH:mm</code>, <code>false</code> for <code>hh:mm a</code>.</td></tr>
-            <tr><td><code>label</code></td><td class="type"><code>String?</code></td><td><code>null</code></td><td>—</td></tr>
+            <tr><td><code>size</code></td><td class="type"><code>Dp</code></td><td><code>300.dp</code></td><td>diameter of the dial. The component is laid out larger than this to leave room for the outer shadows; a <code>Modifier</code> that sets its own size takes precedence.</td></tr>
+            <tr><td><code>showSeconds</code></td><td class="type"><code>Boolean</code></td><td><code>true</code></td><td>draw the second hand.</td></tr>
+            <tr><td><code>darkTheme</code></td><td class="type"><code>Boolean</code></td><td><code>isSystemInDarkTheme()</code></td><td>use the dark palette; defaults to the system setting.</td></tr>
             </tbody>
           </table>
         </section>

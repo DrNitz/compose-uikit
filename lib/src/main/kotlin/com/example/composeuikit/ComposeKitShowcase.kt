@@ -44,7 +44,9 @@ fun ComposeKitShowcase(modifier: Modifier = Modifier) {
         }
         item {
             ShowcaseSection("Clock") {
-                ComposeKitClock(label = "Local time", showSeconds = true)
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+                    ComposeKitClock(showSeconds = true)
+                }
             }
         }
         item {
