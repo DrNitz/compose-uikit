@@ -34,10 +34,10 @@ afterEvaluate {
         publications {
             create<MavenPublication>("release") {
                 from(components["release"])
-                // JitPack's coordinate for a module in a multi-module repo:
-                // com.github.<user>.<repo>:<module>:<tag>
-                groupId = "com.github.DrNitz.compose-uikit"
-                artifactId = "lib"
+                // Matches what JitPack actually serves for this repo, verified
+                // against the published v0.1.0 POM: the repo-name convention.
+                groupId = "com.github.DrNitz"
+                artifactId = "compose-uikit"
                 version = "v0.1.0"
             }
         }

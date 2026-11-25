@@ -67,7 +67,7 @@ To build locally instead:
 From JitPack:
 
 ```kotlin
-implementation("com.github.DrNitz.compose-uikit:lib:v0.1.0")
+implementation("com.github.DrNitz:compose-uikit:v0.1.0")
 ```
 
 From a clone of this repo:
@@ -134,7 +134,18 @@ git tag v0.1.0 && git push origin v0.1.0
 ```
 
 JitPack builds the tag. `jitpack.yml` pins JDK 17 and publishes only `:lib` — the demo module
-is a test harness, not an artifact. To check locally first:
+is a test harness, not an artifact.
+
+The coordinate uses the repo name, not the module name:
+
+```
+com.github.<owner>:<repo>:<tag>      ->  com.github.DrNitz:compose-uikit:v0.1.0
+```
+
+That is what JitPack actually serves; `lib/build.gradle.kts` mirrors it so a local
+`publishToMavenLocal` produces the same coordinates.
+
+To check locally first:
 
 ```bash
 ./gradlew :lib:publishToMavenLocal
@@ -178,7 +189,6 @@ Because `jvmTarget` defaults to `compileOptions.targetCompatibility`, neither mo
 
 - More components (cards, list items, buttons, snackbar, badges) — each one picks up a docs
   page automatically, and a tile in the demo gallery
-- A `v0.1.0` tag, so the JitPack install line resolves for other developers
 - Preview media (see `docs/media/MANIFEST.md` for the files to record)
 
 ## License

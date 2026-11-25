@@ -320,6 +320,16 @@ def dedent(block: str) -> str:
     return "\n".join(out).rstrip()
 
 
+def jitpack_coordinate(slug: str) -> str:
+    """JitPack publishes a repo's artifact under com.github.<owner>:<repo>:<tag>.
+
+    Verified against the published POM for v0.1.0: groupId com.github.DrNitz,
+    artifactId compose-uikit — the repo-name convention, not the module name.
+    """
+    owner, _, repo = slug.partition("/")
+    return f"com.github.{owner}:{repo}:{VERSION}"
+
+
 def repo_slug() -> str:
     try:
         url = subprocess.run(
@@ -621,7 +631,7 @@ def render_index(components: list[Component], slug: str) -> str:
             f"media/MANIFEST.md</a>.</p>"
         )
 
-    jitpack = f'implementation("com.github.{slug}:lib:{VERSION}")'
+    jitpack = f'implementation("{jitpack_coordinate(slug)}")'
 
     return (
         head(
@@ -656,7 +666,7 @@ def render_index(components: list[Component], slug: str) -> str:
         + code_block("build.gradle.kts", jitpack, "install")
         + '\n      <p class="note">Published with JitPack from tag <code>'
         + VERSION
-        + "</code>. Not tagged yet? Clone the repo and use "
+        + "</code>. Working from a clone instead? Use "
         '<code>implementation(project(":lib"))</code>. The demo APK is a direct download from '
         f'every CI run — see <a href="https://github.com/{slug}/releases/latest">Releases</a>.</p>\n'
         "    </section>\n"
@@ -706,7 +716,7 @@ def render_component(component: Component, slug: str) -> str:
         "<section>\n" + "".join(parts) + "</section>\n",
     ]
 
-    jitpack = f'implementation("com.github.{slug}:lib:{VERSION}")'
+    jitpack = f'implementation("{jitpack_coordinate(slug)}")'
     sections.append(
         "<section>\n      <h2>Install</h2>\n"
         + code_block("build.gradle.kts", jitpack, "install")
