@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ComposeKitChatInput — Compose UI Kit</title>
+  <meta name="description" content="Message composer: a growing text field plus a send button that disables itself on blank input.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="compact">
+      <a class="back" href="../index.html">← All components</a>
+      <h1><code>ComposeKitChatInput</code></h1>
+      <p class="lede">Message composer: a growing text field plus a send button that disables itself on blank input. Stateless on purpose — hold the text wherever you like.</p>
+    </header>
+
+    <section>
+          <div class="preview empty">
+            No preview yet.<br>Add <code>docs/media/chat-input/preview.webp</code>
+          </div>
+    </section>
+    <section>
+          <h2>Install</h2>
+    <div class="block">
+      <div class="label"><span>build.gradle.kts</span><button class="copy" data-copy="install">Copy</button></div>
+      <pre><code id="install">implementation(<span class="t-string">"com.github.DrNitz/compose-uikit:lib:v0.1.0"</span>)</code></pre>
+    </div>
+          <p class="note">Or from a clone: <code>implementation(project(":lib"))</code>.</p>
+        </section>
+    <section>
+          <h2>Usage</h2>
+    <div class="block">
+      <div class="label"><span>Kotlin</span><button class="copy" data-copy="usage">Copy</button></div>
+      <pre><code id="usage"><span class="t-kw">var</span> draft <span class="t-kw">by</span> remember { mutableStateOf(<span class="t-string">""</span>) }
+    <span class="t-type">ComposeKitChatInput</span>(value = draft, onValueChange = { draft = <span class="t-kw">it</span> }, onSend = { send(draft); draft = <span class="t-string">""</span> })</code></pre>
+    </div>
+        </section>
+    <section>
+          <h2>Demo source</h2>
+    <div class="block">
+      <div class="label"><span>Kotlin</span><button class="copy" data-copy="demo">Copy</button></div>
+      <pre><code id="demo"><span class="t-type">ShowcaseSection</span>(<span class="t-string">"Chat input"</span>, contentPadding = <span class="t-type">PaddingValues</span>(<span class="t-number">0</span>.dp)) {
+        <span class="t-type">ComposeKitChatInput</span>(
+            value = draft,
+            onValueChange = { draft = <span class="t-kw">it</span> },
+            onSend = { draft = <span class="t-string">""</span> },
+        )
+    }</code></pre>
+    </div>
+          <p class="note">This is the block the demo app renders, so it is what produced the preview above.</p>
+        </section>
+    <section>
+          <h2>Parameters</h2>
+          <table class="props">
+            <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+            <tbody>
+            <tr><td><code>value</code></td><td class="type"><code>String</code></td><td>—</td><td>current draft text.</td></tr>
+            <tr><td><code>onValueChange</code></td><td class="type"><code>(String) -&gt; Unit</code></td><td>—</td><td>called on every keystroke.</td></tr>
+            <tr><td><code>onSend</code></td><td class="type"><code>() -&gt; Unit</code></td><td>—</td><td>called when the send button is tapped; ignored while blank.</td></tr>
+            <tr><td><code>modifier</code></td><td class="type"><code>Modifier</code></td><td><code>Modifier</code></td><td>—</td></tr>
+            <tr><td><code>placeholder</code></td><td class="type"><code>String</code></td><td><code>"Message"</code></td><td>—</td></tr>
+            <tr><td><code>enabled</code></td><td class="type"><code>Boolean</code></td><td><code>true</code></td><td>—</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+    <footer>Source: <code>ComposeKitChatInput.kt</code> · <a href="https://github.com/DrNitz/compose-uikit">GitHub</a></footer>
+  </div>
+  <script src="../app.js"></script>
+</body>
+</html>

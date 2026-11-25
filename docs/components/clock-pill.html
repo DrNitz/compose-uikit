@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ComposeKitClockPill — Compose UI Kit</title>
+  <meta name="description" content="Compact variant suited to a toolbar or status strip: one line, no label, seconds on.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="compact">
+      <a class="back" href="../index.html">← All components</a>
+      <h1><code>ComposeKitClockPill</code></h1>
+      <p class="lede">Compact variant suited to a toolbar or status strip: one line, no label, seconds on.</p>
+    </header>
+
+    <section>
+          <div class="preview empty">
+            No preview yet.<br>Add <code>docs/media/clock-pill/preview.webp</code>
+          </div>
+    </section>
+    <section>
+          <h2>Install</h2>
+    <div class="block">
+      <div class="label"><span>build.gradle.kts</span><button class="copy" data-copy="install">Copy</button></div>
+      <pre><code id="install">implementation(<span class="t-string">"com.github.DrNitz/compose-uikit:lib:v0.1.0"</span>)</code></pre>
+    </div>
+          <p class="note">Or from a clone: <code>implementation(project(":lib"))</code>.</p>
+        </section>
+    <section>
+          <h2>Usage</h2>
+    <div class="block">
+      <div class="label"><span>Kotlin</span><button class="copy" data-copy="usage">Copy</button></div>
+      <pre><code id="usage"><span class="t-type">ComposeKitClockPill</span>()</code></pre>
+    </div>
+        </section>
+    <section>
+          <h2>Demo source</h2>
+    <div class="block">
+      <div class="label"><span>Kotlin</span><button class="copy" data-copy="demo">Copy</button></div>
+      <pre><code id="demo"><span class="t-type">ShowcaseSection</span>(<span class="t-string">"Clock pill"</span>) {
+        <span class="t-type">ComposeKitClockPill</span>()
+    }</code></pre>
+    </div>
+          <p class="note">This is the block the demo app renders, so it is what produced the preview above.</p>
+        </section>
+    <section>
+          <h2>Parameters</h2>
+          <table class="props">
+            <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+            <tbody>
+            <tr><td><code>modifier</code></td><td class="type"><code>Modifier</code></td><td><code>Modifier</code></td><td>—</td></tr>
+            <tr><td><code>use24Hour</code></td><td class="type"><code>Boolean</code></td><td><code>true</code></td><td>—</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+    <footer>Source: <code>ComposeKitClock.kt</code> · <a href="https://github.com/DrNitz/compose-uikit">GitHub</a></footer>
+  </div>
+  <script src="../app.js"></script>
+</body>
+</html>

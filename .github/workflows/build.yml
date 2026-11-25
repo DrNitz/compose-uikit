@@ -35,3 +35,33 @@ jobs:
           name: compose-uikit-demo-debug
           path: demo/build/outputs/apk/debug/*.apk
           if-no-files-found: error
+
+  docs:
+    name: Regenerate site
+    runs-on: ubuntu-latest
+    # Only on main: regenerate docs/ and commit, so preview media dropped in from a
+    # phone shows up on the site without anyone running the generator locally.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Generate docs
+        run: python3 tools/generate_docs.py
+
+      - name: Commit if the generated output changed
+        run: |
+          if git diff --quiet -- docs; then
+            echo "docs/ already up to date"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs
+          git commit -m "Regenerate component docs"
+          git push

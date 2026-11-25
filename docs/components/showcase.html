@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ComposeKitShowcase — Compose UI Kit</title>
+  <meta name="description" content="One page that renders every component in the kit, live.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="compact">
+      <a class="back" href="../index.html">← All components</a>
+      <h1><code>ComposeKitShowcase</code></h1>
+      <p class="lede">One page that renders every component in the kit, live. This is the single source of truth for "what the library looks like": the demo app embeds it directly, and the screenshot pipeline can render the same composable, so the website previews can never drift from the real components.</p>
+    </header>
+
+    <section>
+          <div class="preview empty">
+            No preview yet.<br>Add <code>docs/media/showcase/preview.webp</code>
+          </div>
+    </section>
+    <section>
+          <h2>Install</h2>
+    <div class="block">
+      <div class="label"><span>build.gradle.kts</span><button class="copy" data-copy="install">Copy</button></div>
+      <pre><code id="install">implementation(<span class="t-string">"com.github.DrNitz/compose-uikit:lib:v0.1.0"</span>)</code></pre>
+    </div>
+          <p class="note">Or from a clone: <code>implementation(project(":lib"))</code>.</p>
+        </section>
+    <section>
+          <h2>Parameters</h2>
+          <table class="props">
+            <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+            <tbody>
+            <tr><td><code>modifier</code></td><td class="type"><code>Modifier</code></td><td><code>Modifier</code></td><td>—</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+    <footer>Source: <code>ComposeKitShowcase.kt</code> · <a href="https://github.com/DrNitz/compose-uikit">GitHub</a></footer>
+  </div>
+  <script src="../app.js"></script>
+</body>
+</html>

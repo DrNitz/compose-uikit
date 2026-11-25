@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.compose.compiler)
+    `maven-publish`
 }
 
 android {
@@ -19,6 +20,27 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                // JitPack's coordinate for a module in a multi-module repo:
+                // com.github.<user>.<repo>:<module>:<tag>
+                groupId = "com.github.DrNitz.compose-uikit"
+                artifactId = "lib"
+                version = "v0.1.0"
+            }
+        }
     }
 }
 

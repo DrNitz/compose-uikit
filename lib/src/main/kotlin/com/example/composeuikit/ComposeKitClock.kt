@@ -77,6 +77,10 @@ fun ComposeKitClock(
 
 /**
  * Compact variant suited to a toolbar or status strip: one line, no label, seconds on.
+ *
+ * ```kotlin
+ * ComposeKitClockPill()
+ * ```
  */
 @Composable
 fun ComposeKitClockPill(

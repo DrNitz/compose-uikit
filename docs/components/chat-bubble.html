@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ComposeKitChatBubble — Compose UI Kit</title>
+  <meta name="description" content="A single chat message.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="compact">
+      <a class="back" href="../index.html">← All components</a>
+      <h1><code>ComposeKitChatBubble</code></h1>
+      <p class="lede">A single chat message. Own messages align right and use the container colour, incoming ones align left, so bubble tails point the right way.</p>
+    </header>
+
+    <section>
+          <div class="preview empty">
+            No preview yet.<br>Add <code>docs/media/chat-bubble/preview.webp</code>
+          </div>
+    </section>
+    <section>
+          <h2>Install</h2>
+    <div class="block">
+      <div class="label"><span>build.gradle.kts</span><button class="copy" data-copy="install">Copy</button></div>
+      <pre><code id="install">implementation(<span class="t-string">"com.github.DrNitz/compose-uikit:lib:v0.1.0"</span>)</code></pre>
+    </div>
+          <p class="note">Or from a clone: <code>implementation(project(":lib"))</code>.</p>
+        </section>
+    <section>
+          <h2>Usage</h2>
+    <div class="block">
+      <div class="label"><span>Kotlin</span><button class="copy" data-copy="usage">Copy</button></div>
+      <pre><code id="usage"><span class="t-type">ComposeKitChatBubble</span>(message = <span class="t-string">"On my way"</span>, isMine = <span class="t-kw">true</span>, timestamp = <span class="t-string">"09:41"</span>)</code></pre>
+    </div>
+        </section>
+    <section>
+          <h2>Demo source</h2>
+    <div class="block">
+      <div class="label"><span>Kotlin</span><button class="copy" data-copy="demo">Copy</button></div>
+      <pre><code id="demo"><span class="t-type">ShowcaseSection</span>(<span class="t-string">"Chat bubbles"</span>, contentPadding = <span class="t-type">PaddingValues</span>(<span class="t-number">0</span>.dp)) {
+        <span class="t-type">Column</span> {
+            <span class="t-type">ComposeKitChatBubble</span>(
+                message = <span class="t-string">"Hey, is the build green?"</span>,
+                timestamp = <span class="t-string">"09:41"</span>,
+            )
+            <span class="t-type">ComposeKitChatBubble</span>(
+                message = <span class="t-string">"Yep — APK is on the artifacts page"</span>,
+                isMine = <span class="t-kw">true</span>,
+                timestamp = <span class="t-string">"09:42"</span>,
+            )
+        }
+    }</code></pre>
+    </div>
+          <p class="note">This is the block the demo app renders, so it is what produced the preview above.</p>
+        </section>
+    <section>
+          <h2>Parameters</h2>
+          <table class="props">
+            <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+            <tbody>
+            <tr><td><code>message</code></td><td class="type"><code>String</code></td><td>—</td><td>body text.</td></tr>
+            <tr><td><code>modifier</code></td><td class="type"><code>Modifier</code></td><td><code>Modifier</code></td><td>—</td></tr>
+            <tr><td><code>isMine</code></td><td class="type"><code>Boolean</code></td><td><code>false</code></td><td><code>true</code> for messages the local user sent.</td></tr>
+            <tr><td><code>timestamp</code></td><td class="type"><code>String?</code></td><td><code>null</code></td><td>small label under the bubble, hidden when null.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+    <footer>Source: <code>ComposeKitChatBubble.kt</code> · <a href="https://github.com/DrNitz/compose-uikit">GitHub</a></footer>
+  </div>
+  <script src="../app.js"></script>
+</body>
+</html>

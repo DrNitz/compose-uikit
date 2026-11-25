@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ComposeKitAvatar — Compose UI Kit</title>
+  <meta name="description" content="Circular avatar built from initials, with an optional presence dot.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="compact">
+      <a class="back" href="../index.html">← All components</a>
+      <h1><code>ComposeKitAvatar</code></h1>
+      <p class="lede">Circular avatar built from initials, with an optional presence dot. Deliberately no image loading: pass a name and it works offline.</p>
+    </header>
+
+    <section>
+          <div class="preview empty">
+            No preview yet.<br>Add <code>docs/media/avatar/preview.webp</code>
+          </div>
+    </section>
+    <section>
+          <h2>Install</h2>
+    <div class="block">
+      <div class="label"><span>build.gradle.kts</span><button class="copy" data-copy="install">Copy</button></div>
+      <pre><code id="install">implementation(<span class="t-string">"com.github.DrNitz/compose-uikit:lib:v0.1.0"</span>)</code></pre>
+    </div>
+          <p class="note">Or from a clone: <code>implementation(project(":lib"))</code>.</p>
+        </section>
+    <section>
+          <h2>Usage</h2>
+    <div class="block">
+      <div class="label"><span>Kotlin</span><button class="copy" data-copy="usage">Copy</button></div>
+      <pre><code id="usage"><span class="t-type">ComposeKitAvatar</span>(name = <span class="t-string">"Ada Lovelace"</span>, size = <span class="t-number">48</span>.dp, online = <span class="t-kw">true</span>)</code></pre>
+    </div>
+        </section>
+    <section>
+          <h2>Demo source</h2>
+    <div class="block">
+      <div class="label"><span>Kotlin</span><button class="copy" data-copy="demo">Copy</button></div>
+      <pre><code id="demo"><span class="t-type">ShowcaseSection</span>(<span class="t-string">"Avatars"</span>) {
+        <span class="t-type">Row</span>(horizontalArrangement = <span class="t-type">Arrangement</span>.spacedBy(<span class="t-number">12</span>.dp)) {
+            <span class="t-type">ComposeKitAvatar</span>(name = <span class="t-string">"Ada Lovelace"</span>, size = <span class="t-number">48</span>.dp, online = <span class="t-kw">true</span>)
+            <span class="t-type">ComposeKitAvatar</span>(name = <span class="t-string">"Grace Hopper"</span>, size = <span class="t-number">48</span>.dp)
+            <span class="t-type">ComposeKitAvatar</span>(name = <span class="t-string">"Alan Turing"</span>, size = <span class="t-number">48</span>.dp, online = <span class="t-kw">true</span>)
+        }
+    }</code></pre>
+    </div>
+          <p class="note">This is the block the demo app renders, so it is what produced the preview above.</p>
+        </section>
+    <section>
+          <h2>Parameters</h2>
+          <table class="props">
+            <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+            <tbody>
+            <tr><td><code>name</code></td><td class="type"><code>String</code></td><td>—</td><td>source for the initials, e.g. <code>"Ada Lovelace"</code> -&gt; <code>"AL"</code>.</td></tr>
+            <tr><td><code>modifier</code></td><td class="type"><code>Modifier</code></td><td><code>Modifier</code></td><td>—</td></tr>
+            <tr><td><code>size</code></td><td class="type"><code>Dp</code></td><td><code>40.dp</code></td><td>overall diameter.</td></tr>
+            <tr><td><code>online</code></td><td class="type"><code>Boolean</code></td><td><code>false</code></td><td>draws the green presence dot when true.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+    <footer>Source: <code>ComposeKitAvatar.kt</code> · <a href="https://github.com/DrNitz/compose-uikit">GitHub</a></footer>
+  </div>
+  <script src="../app.js"></script>
+</body>
+</html>

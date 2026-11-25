@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ComposeKitTopAppBar — Compose UI Kit</title>
+  <meta name="description" content="Material 3 top app bar with a title, an optional subtitle and trailing actions.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="compact">
+      <a class="back" href="../index.html">← All components</a>
+      <h1><code>ComposeKitTopAppBar</code></h1>
+      <p class="lede">Material 3 top app bar with a title, an optional subtitle and trailing actions.</p>
+    </header>
+
+    <section>
+          <div class="preview empty">
+            No preview yet.<br>Add <code>docs/media/top-app-bar/preview.webp</code>
+          </div>
+    </section>
+    <section>
+          <h2>Install</h2>
+    <div class="block">
+      <div class="label"><span>build.gradle.kts</span><button class="copy" data-copy="install">Copy</button></div>
+      <pre><code id="install">implementation(<span class="t-string">"com.github.DrNitz/compose-uikit:lib:v0.1.0"</span>)</code></pre>
+    </div>
+          <p class="note">Or from a clone: <code>implementation(project(":lib"))</code>.</p>
+        </section>
+    <section>
+          <h2>Usage</h2>
+    <div class="block">
+      <div class="label"><span>Kotlin</span><button class="copy" data-copy="usage">Copy</button></div>
+      <pre><code id="usage"><span class="t-type">ComposeKitTopAppBar</span>(title = <span class="t-string">"Inbox"</span>, subtitle = <span class="t-string">"3 unread"</span>)</code></pre>
+    </div>
+        </section>
+    <section>
+          <h2>Demo source</h2>
+    <div class="block">
+      <div class="label"><span>Kotlin</span><button class="copy" data-copy="demo">Copy</button></div>
+      <pre><code id="demo"><span class="t-type">ShowcaseSection</span>(<span class="t-string">"TopAppBar"</span>) {
+        <span class="t-type">ComposeKitTopAppBar</span>(title = <span class="t-string">"Inbox"</span>, subtitle = <span class="t-string">"3 unread"</span>)
+    }</code></pre>
+    </div>
+          <p class="note">This is the block the demo app renders, so it is what produced the preview above.</p>
+        </section>
+    <section>
+          <h2>Parameters</h2>
+          <table class="props">
+            <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+            <tbody>
+            <tr><td><code>title</code></td><td class="type"><code>String</code></td><td>—</td><td>main label, usually the screen name.</td></tr>
+            <tr><td><code>modifier</code></td><td class="type"><code>Modifier</code></td><td><code>Modifier</code></td><td>—</td></tr>
+            <tr><td><code>subtitle</code></td><td class="type"><code>String?</code></td><td><code>null</code></td><td>small secondary line under the title, hidden when null.</td></tr>
+            <tr><td><code>actions</code></td><td class="type"><code>@Composable RowScope.() -&gt; Unit</code></td><td><code>{}</code></td><td>trailing content, typically icon buttons.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+    <footer>Source: <code>ComposeKitTopAppBar.kt</code> · <a href="https://github.com/DrNitz/compose-uikit">GitHub</a></footer>
+  </div>
+  <script src="../app.js"></script>
+</body>
+</html>

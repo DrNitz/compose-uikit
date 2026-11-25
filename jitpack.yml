@@ -1,0 +1,10 @@
+jdk:
+  - openjdk17
+
+# AGP 9.5.2 against compileSdk 37.2 needs that platform present.
+before_install:
+  - yes | sdkmanager "platforms;android-37.2" "build-tools;37.0.0" > /dev/null || true
+
+# Only the library is published. The demo module is a test harness, not an artifact.
+install:
+  - ./gradlew :lib:publishToMavenLocal -x test

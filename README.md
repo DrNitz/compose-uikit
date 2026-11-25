@@ -13,8 +13,10 @@ Not an icon pack and not a CSS widget kit — these are real Kotlin composables.
 ## Layout
 
 ```
-lib/     reusable library: the components other developers depend on
-demo/    Android app that renders every component (this is the APK you install)
+lib/      reusable library: the components other developers depend on
+demo/     Android app that renders every component (this is the APK you install)
+docs/     the generated site: index.html plus one page per component
+tools/    generate_docs.py, which builds docs/ from the library source
 ```
 
 | Module | Produces | Purpose |
@@ -33,9 +35,8 @@ demo/    Android app that renders every component (this is the APK you install)
 | `ComposeKitAvatar` | `lib/.../ComposeKitAvatar.kt` |
 | `ComposeKitShowcase` | `lib/.../ComposeKitShowcase.kt` |
 
-`ComposeKitShowcase` renders every component on one page. The demo app embeds it directly,
-and it is also the single place a future screenshot pipeline would render — so website
-previews can't drift from the real components.
+`ComposeKitShowcase` renders every component on one page. The demo app embeds it directly —
+record your preview media from there, so what visitors see matches what ships.
 
 ## Get the APK onto your phone
 
@@ -53,17 +54,83 @@ To build locally instead:
 
 ## Use a component in your app
 
-While the project is local:
+From JitPack:
+
+```kotlin
+implementation("com.github.DrNitz.compose-uikit:lib:v0.1.0")
+```
+
+From a clone of this repo:
 
 ```kotlin
 implementation(project(":lib"))
 ```
 
-Once published to JitPack, it becomes a one-liner:
+## Documentation site
 
-```kotlin
-implementation("com.github.<user>.<repo>:lib:<tag>")
+`docs/` is generated from the library, never hand-edited:
+
+```bash
+python3 tools/generate_docs.py
 ```
+
+It reads every documented `@Composable` in `lib/` and extracts the signature, the KDoc
+description, the `@param` docs, the usage example from the KDoc code block, and the matching
+`ShowcaseSection` block used as the "demo source" panel.
+
+| Path | What |
+|---|---|
+| `docs/index.html` | landing page with a clickable component grid |
+| `docs/components/<slug>.html` | one page per component |
+| `docs/style.css`, `docs/app.js` | shared styles and the copy buttons |
+| `docs/media/MANIFEST.md` | which preview files are still missing |
+
+### Previews are recorded by hand
+
+Nothing renders component images for you. Drop a file at:
+
+```
+docs/media/<slug>/preview.webp     (.png, .gif or .mp4 also work)
+```
+
+and it appears on that component's page. Preference order is `.mp4` → `.webp` → `.png` →
+`.gif`. Use `.mp4` for anything that moves — the ticking clock, typing in the chat input —
+because a still image cannot show it. Keep clips short; they live in git history forever.
+
+Missing media is not an error. The page still shows the install line, usage, demo source and
+parameter table, and the grid marks the card "preview pending". Add components and media in
+any order.
+
+Slugs are the component name minus `ComposeKit`, kebab-cased:
+
+| Component | Slug |
+|---|---|
+| `ComposeKitTopAppBar` | `top-app-bar` |
+| `ComposeKitClock` | `clock` |
+| `ComposeKitClockPill` | `clock-pill` |
+| `ComposeKitAvatar` | `avatar` |
+| `ComposeKitChatBubble` | `chat-bubble` |
+| `ComposeKitChatInput` | `chat-input` |
+| `ComposeKitShowcase` | `showcase` |
+
+Push to `main` and CI regenerates `docs/` and commits the result, so you can add media
+straight from a phone and the site catches up on its own.
+
+### Publishing
+
+```bash
+git tag v0.1.0 && git push origin v0.1.0
+```
+
+JitPack builds the tag. `jitpack.yml` pins JDK 17 and publishes only `:lib` — the demo module
+is a test harness, not an artifact. To check locally first:
+
+```bash
+./gradlew :lib:publishToMavenLocal
+```
+
+When you tag a new version, bump the version in `lib/build.gradle.kts` and `VERSION` in
+`tools/generate_docs.py` so the install line on the site matches.
 
 ## Add a component
 
@@ -98,9 +165,10 @@ Because `jvmTarget` defaults to `compileOptions.targetCompatibility`, neither mo
 
 ## Not done yet
 
-- Website that generates itself from the components (screenshots via Compose previews in CI)
-- JitPack publish + semantic version tags
-- More components
+- More components (cards, list items, buttons, snackbar, badges) — each one picks up a docs
+  page automatically
+- A `v0.1.0` tag, so the JitPack install line resolves for other developers
+- Preview media (see `docs/media/MANIFEST.md` for the seven files to record)
 
 ## License
 
