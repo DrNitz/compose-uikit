@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ComposeKitTopAppBar — Compose UI Kit</title>
-  <meta name="description" content="Material 3 top app bar with a title, an optional subtitle and trailing actions.">
+  <meta name="description" content="Material 3 top app bar with a title, an optional subtitle, a leading slot and trailing actions.">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
     <header class="compact">
       <a class="back" href="../index.html">← All components</a>
       <h1><code>ComposeKitTopAppBar</code></h1>
-      <p class="lede">Material 3 top app bar with a title, an optional subtitle and trailing actions.</p>
+      <p class="lede">Material 3 top app bar with a title, an optional subtitle, a leading slot and trailing actions.</p>
     </header>
 
     <section>
@@ -53,7 +53,8 @@
             <tr><td><code>title</code></td><td class="type"><code>String</code></td><td>—</td><td>main label, usually the screen name.</td></tr>
             <tr><td><code>modifier</code></td><td class="type"><code>Modifier</code></td><td><code>Modifier</code></td><td>—</td></tr>
             <tr><td><code>subtitle</code></td><td class="type"><code>String?</code></td><td><code>null</code></td><td>small secondary line under the title, hidden when null.</td></tr>
-            <tr><td><code>actions</code></td><td class="type"><code>@Composable RowScope.() -&gt; Unit</code></td><td><code>{}</code></td><td>trailing content, typically icon buttons.</td></tr>
+            <tr><td><code>navigationIcon</code></td><td class="type"><code>@Composable (() -&gt; Unit)? = null,
+        actions: @Composable RowScope.() -&gt; Unit = {},</code></td><td>—</td><td>optional leading content, typically a back button.</td></tr>
             </tbody>
           </table>
         </section>

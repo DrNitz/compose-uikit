@@ -19,6 +19,7 @@ still image cannot show those. Keep clips short; they live in git history foreve
 | `ComposeKitAvatar` | `avatar` | `docs/media/avatar/preview.webp` | **missing** |
 | `ComposeKitChatBubble` | `chat-bubble` | `docs/media/chat-bubble/preview.webp` | **missing** |
 | `ComposeKitChatInput` | `chat-input` | `docs/media/chat-input/preview.webp` | **missing** |
+| `ComposeKitReaderCard` | `reader-card` | `docs/media/reader-card/preview.webp` | **missing** |
 | `ComposeKitShowcase` | `showcase` | `docs/media/showcase/preview.webp` | **missing** |
 
 After adding a file, run `python3 tools/generate_docs.py` (or push — CI does it)

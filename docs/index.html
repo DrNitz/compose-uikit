@@ -15,22 +15,23 @@
       <p class="lede">Reusable composables written once and shared: the library is a dependency for other apps, the demo app is the APK on your phone, and both render the same component code.</p>
       <div class="actions">
         <a class="btn btn-primary" href="https://github.com/DrNitz/compose-uikit">View on GitHub</a>
-        <a class="btn btn-secondary" href="https://github.com/DrNitz/compose-uikit/actions">Get the demo APK</a>
+        <a class="btn btn-secondary" href="https://github.com/DrNitz/compose-uikit/releases/download/latest/compose-uikit-demo.apk">Get the demo APK</a>
       </div>
     </header>
 
     <section>
       <h2>Components</h2>
       <div class="grid">
-        <a class="card pending" href="components/top-app-bar.html"><code>ComposeKitTopAppBar</code><p>Material 3 top app bar with a title, an optional subtitle and trailing actions.</p><span class="tag">preview pending</span></a>
+        <a class="card pending" href="components/top-app-bar.html"><code>ComposeKitTopAppBar</code><p>Material 3 top app bar with a title, an optional subtitle, a leading slot and trailing actions.</p><span class="tag">preview pending</span></a>
         <a class="card pending" href="components/clock.html"><code>ComposeKitClock</code><p>Self-updating clock.</p><span class="tag">preview pending</span></a>
         <a class="card pending" href="components/clock-pill.html"><code>ComposeKitClockPill</code><p>Compact variant suited to a toolbar or status strip: one line, no label, seconds on.</p><span class="tag">preview pending</span></a>
         <a class="card pending" href="components/avatar.html"><code>ComposeKitAvatar</code><p>Circular avatar built from initials, with an optional presence dot.</p><span class="tag">preview pending</span></a>
         <a class="card pending" href="components/chat-bubble.html"><code>ComposeKitChatBubble</code><p>A single chat message.</p><span class="tag">preview pending</span></a>
         <a class="card pending" href="components/chat-input.html"><code>ComposeKitChatInput</code><p>Message composer: a growing text field plus a send button that disables itself on blank input.</p><span class="tag">preview pending</span></a>
+        <a class="card pending" href="components/reader-card.html"><code>ComposeKitReaderCard</code><p>A story card that scrolls in place and grows into a full reader.</p><span class="tag">preview pending</span></a>
         <a class="card pending" href="components/showcase.html"><code>ComposeKitShowcase</code><p>One page that renders every component in the kit, live.</p><span class="tag">preview pending</span></a>
       </div>
-      <p class="note">7 of 7 components still need a preview. Drop a file at <code>docs/media/&lt;slug&gt;/preview.webp</code> (or <code>.mp4</code>, <code>.png</code>, <code>.gif</code>) and it shows up here. Slugs are listed in <a href="https://github.com/DrNitz/compose-uikit/blob/main/docs/media/MANIFEST.md">media/MANIFEST.md</a>.</p>
+      <p class="note">8 of 8 components still need a preview. Drop a file at <code>docs/media/&lt;slug&gt;/preview.webp</code> (or <code>.mp4</code>, <code>.png</code>, <code>.gif</code>) and it shows up here. Slugs are listed in <a href="https://github.com/DrNitz/compose-uikit/blob/main/docs/media/MANIFEST.md">media/MANIFEST.md</a>.</p>
     </section>
 
     <section>
@@ -39,7 +40,7 @@
   <div class="label"><span>build.gradle.kts</span><button class="copy" data-copy="install">Copy</button></div>
   <pre><code id="install">implementation(<span class="t-string">"com.github.DrNitz/compose-uikit:lib:v0.1.0"</span>)</code></pre>
 </div>
-      <p class="note">Published with JitPack from tag <code>v0.1.0</code>. Not tagged yet? Clone the repo and use <code>implementation(project(":lib"))</code>. The debug APK is attached to every CI run as the artifact <code>compose-uikit-demo-debug</code> — see <a href="https://github.com/DrNitz/compose-uikit/actions">Actions</a>.</p>
+      <p class="note">Published with JitPack from tag <code>v0.1.0</code>. Not tagged yet? Clone the repo and use <code>implementation(project(":lib"))</code>. The demo APK is a direct download from every CI run — see <a href="https://github.com/DrNitz/compose-uikit/releases/latest">Releases</a>.</p>
     </section>
 
     <section>

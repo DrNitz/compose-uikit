@@ -85,8 +85,42 @@ fun ComposeKitShowcase(modifier: Modifier = Modifier) {
                 )
             }
         }
+        item {
+            ShowcaseSection("Reader card", contentPadding = PaddingValues(0.dp)) {
+                ComposeKitReaderCard(
+                    title = "The Clockmaker's Apprentice",
+                    chapterLabel = "Chapter One",
+                    meta = "Demo content",
+                    excerpt = SampleExcerpt,
+                    chapter = SampleChapter,
+                    resumeAfter = ResumeSnippet,
+                    modifier = Modifier.fillMaxWidth().height(640.dp),
+                )
+            }
+        }
     }
 }
+
+private val SampleExcerpt = listOf(
+    "The shop smelled of brass filings and cold tea. Neve had swept the same floor every morning " +
+        "for a year, and every morning the broom found a gear she had never seen before.",
+    "Her master never explained the clocks. He handed her a screwdriver and said the rest was patience.",
+)
+
+private val SampleChapter = listOf(
+    "Morning came grey through the shop window, and the hundred clocks on the wall disagreed about " +
+        "it, as they always had.",
+    "The shop smelled of brass filings and cold tea. She had swept the same floor every morning for " +
+        "a year, and every morning the broom found a gear she had never seen before.",
+    "On the bench lay a watch with no face, its hands turning in opposite directions. Her master had " +
+        "left it there without a note, which meant he expected her to ask nothing and finish it.",
+    "By noon she had it running. By evening she understood that it had been running all along, and " +
+        "that the hands were not telling time but counting something else.",
+    "She put down the screwdriver. Somewhere behind her the clocks on the wall fell silent at once, " +
+        "and she decided she would not mention it.",
+)
+
+private const val ResumeSnippet = "On the bench lay a watch with no face"
 
 @Composable
 private fun ShowcaseSection(

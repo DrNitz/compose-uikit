@@ -11,10 +11,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 
 /**
- * Material 3 top app bar with a title, an optional subtitle and trailing actions.
+ * Material 3 top app bar with a title, an optional subtitle, a leading slot and trailing actions.
  *
  * @param title main label, usually the screen name.
  * @param subtitle small secondary line under the title, hidden when null.
+ * @param navigationIcon optional leading content, typically a back button.
  * @param actions trailing content, typically icon buttons.
  *
  * ```kotlin
@@ -27,10 +28,12 @@ fun ComposeKitTopAppBar(
     title: String,
     modifier: Modifier = Modifier,
     subtitle: String? = null,
+    navigationIcon: @Composable (() -> Unit)? = null,
     actions: @Composable RowScope.() -> Unit = {},
 ) {
     TopAppBar(
         modifier = modifier,
+        navigationIcon = { navigationIcon?.invoke() },
         title = {
             Column {
                 Text(

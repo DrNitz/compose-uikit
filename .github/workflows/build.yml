@@ -13,6 +13,11 @@ jobs:
   apk:
     name: Debug APK
     runs-on: ubuntu-latest
+    # contents: write so the APK can be attached to the "latest" release as a
+    # direct .apk download. Workflow artifacts are always zipped; a release
+    # asset is a plain file the phone can install straight from the browser.
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -29,18 +34,24 @@ jobs:
       - name: Build debug APK
         run: ./gradlew :demo:assembleDebug --stacktrace
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: compose-uikit-demo-debug
-          path: demo/build/outputs/apk/debug/*.apk
-          if-no-files-found: error
+      - name: Publish installable APK
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cp demo/build/outputs/apk/debug/demo-debug.apk compose-uikit-demo.apk
+          gh release view latest >/dev/null 2>&1 || gh release create latest \
+            --title "Latest demo build" \
+            --notes "Installable debug APK. Replaced on every push to main." \
+            --prerelease
+          gh release upload latest compose-uikit-demo.apk --clobber
+          echo "Direct download: https://github.com/${GITHUB_REPOSITORY}/releases/download/latest/compose-uikit-demo.apk"
 
   docs:
     name: Regenerate site
     runs-on: ubuntu-latest
-    # Only on main: regenerate docs/ and commit, so preview media dropped in from a
-    # phone shows up on the site without anyone running the generator locally.
+    # Regenerate docs/ and commit, so preview media dropped in from a phone
+    # shows up on the site without anyone running the generator locally.
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     permissions:
       contents: write

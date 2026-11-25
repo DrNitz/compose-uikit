@@ -54,6 +54,8 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    // BackHandler, so the reader closes on the system back gesture.
+    implementation(libs.androidx.activity.compose)
 
     debugImplementation(libs.compose.ui.tooling)
 }

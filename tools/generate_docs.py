@@ -41,6 +41,7 @@ ORDER = [
     "avatar",
     "chat-bubble",
     "chat-input",
+    "reader-card",
     "showcase",
 ]
 
@@ -53,6 +54,7 @@ SHOWCASE_TITLE = {
     "avatar": "Avatars",
     "chat-bubble": "Chat bubbles",
     "chat-input": "Chat input",
+    "reader-card": "Reader card",
 }
 
 
@@ -637,7 +639,7 @@ def render_index(components: list[Component], slug: str) -> str:
         "same component code.</p>\n"
         '      <div class="actions">\n'
         f'        <a class="btn btn-primary" href="https://github.com/{slug}">View on GitHub</a>\n'
-        f'        <a class="btn btn-secondary" href="https://github.com/{slug}/actions">Get the demo APK</a>\n'
+        f'        <a class="btn btn-secondary" href="https://github.com/{slug}/releases/download/latest/compose-uikit-demo.apk">Get the demo APK</a>\n'
         "      </div>\n"
         "    </header>\n"
         "\n"
@@ -655,9 +657,8 @@ def render_index(components: list[Component], slug: str) -> str:
         + '\n      <p class="note">Published with JitPack from tag <code>'
         + VERSION
         + "</code>. Not tagged yet? Clone the repo and use "
-        '<code>implementation(project(":lib"))</code>. The debug APK is attached to every CI '
-        f'run as the artifact <code>compose-uikit-demo-debug</code> — see '
-        f'<a href="https://github.com/{slug}/actions">Actions</a>.</p>\n'
+        '<code>implementation(project(":lib"))</code>. The demo APK is a direct download from '
+        f'every CI run — see <a href="https://github.com/{slug}/releases/latest">Releases</a>.</p>\n'
         "    </section>\n"
         "\n"
         "    <section>\n"

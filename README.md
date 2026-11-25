@@ -32,6 +32,7 @@ tools/    generate_docs.py, which builds docs/ from the library source
 | `ComposeKitClock`, `ComposeKitClockPill` | `lib/.../ComposeKitClock.kt` |
 | `ComposeKitChatBubble` | `lib/.../ComposeKitChatBubble.kt` |
 | `ComposeKitChatInput` | `lib/.../ComposeKitChatInput.kt` |
+| `ComposeKitReaderCard` | `lib/.../ComposeKitReaderCard.kt` |
 | `ComposeKitAvatar` | `lib/.../ComposeKitAvatar.kt` |
 | `ComposeKitShowcase` | `lib/.../ComposeKitShowcase.kt` |
 
@@ -40,10 +41,19 @@ record your preview media from there, so what visitors see matches what ships.
 
 ## Get the APK onto your phone
 
-Push to `main`, then on GitHub open **Actions → the latest Build run → Artifacts →
-`compose-uikit-demo-debug`**. Download it on the phone and open it (allow "install unknown
-apps" for your browser). Rebuilds happen on every push, so the loop works entirely from a
-phone.
+CI attaches the APK to a release on every push to `main`, which makes it a direct
+download instead of a zip:
+
+```
+https://github.com/DrNitz/compose-uikit/releases/download/latest/compose-uikit-demo.apk
+```
+
+Open that on the phone and install it (allow "install unknown apps" for your browser). The
+link never changes — the file behind it is replaced on every push. Workflow *artifacts* are
+always zipped, which is why the APK lives on a release instead.
+
+The app is a gallery: a grid of tiles, one per component, and tapping a tile shows that
+component on its own, at full size.
 
 To build locally instead:
 
@@ -111,6 +121,7 @@ Slugs are the component name minus `ComposeKit`, kebab-cased:
 | `ComposeKitAvatar` | `avatar` |
 | `ComposeKitChatBubble` | `chat-bubble` |
 | `ComposeKitChatInput` | `chat-input` |
+| `ComposeKitReaderCard` | `reader-card` |
 | `ComposeKitShowcase` | `showcase` |
 
 Push to `main` and CI regenerates `docs/` and commits the result, so you can add media
@@ -166,9 +177,9 @@ Because `jvmTarget` defaults to `compileOptions.targetCompatibility`, neither mo
 ## Not done yet
 
 - More components (cards, list items, buttons, snackbar, badges) — each one picks up a docs
-  page automatically
+  page automatically, and a tile in the demo gallery
 - A `v0.1.0` tag, so the JitPack install line resolves for other developers
-- Preview media (see `docs/media/MANIFEST.md` for the seven files to record)
+- Preview media (see `docs/media/MANIFEST.md` for the files to record)
 
 ## License
 

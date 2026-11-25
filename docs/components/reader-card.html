@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ComposeKitReaderCard — Compose UI Kit</title>
+  <meta name="description" content="A story card that scrolls in place and grows into a full reader.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="compact">
+      <a class="back" href="../index.html">← All components</a>
+      <h1><code>ComposeKitReaderCard</code></h1>
+      <p class="lede">A story card that scrolls in place and grows into a full reader. Closed, it is a small page of prose under a soft edge fade with an "Open" pill. Tapping it expands the card's own rectangle into a reading panel — the panel is laid out at its final size from the start and only a rounded-rect clip grows, so the text never re-wraps mid-flight. The reader opens on the passage the card was scrolled to, flashes that passage once, and keeps your place when you step the type size up or down. Everything is measured from the container, so the same component works in a 400dp column or full screen. Dismiss with the close button, a tap outside the panel, or the system back gesture. Approximations, because Compose has no direct equivalent: the liquid-glass refraction is a translucent tint over a blurred backdrop rather than a real displacement map, and the drop cap is a raised initial because text cannot wrap around a floating letter.</p>
+    </header>
+
+    <section>
+          <div class="preview empty">
+            No preview yet.<br>Add <code>docs/media/reader-card/preview.webp</code>
+          </div>
+    </section>
+    <section>
+          <h2>Install</h2>
+    <div class="block">
+      <div class="label"><span>build.gradle.kts</span><button class="copy" data-copy="install">Copy</button></div>
+      <pre><code id="install">implementation(<span class="t-string">"com.github.DrNitz/compose-uikit:lib:v0.1.0"</span>)</code></pre>
+    </div>
+          <p class="note">Or from a clone: <code>implementation(project(":lib"))</code>.</p>
+        </section>
+    <section>
+          <h2>Usage</h2>
+    <div class="block">
+      <div class="label"><span>Kotlin</span><button class="copy" data-copy="usage">Copy</button></div>
+      <pre><code id="usage"><span class="t-type">ComposeKitReaderCard</span>(
+        title = <span class="t-string">"The Clockmaker's Apprentice"</span>,
+        chapterLabel = <span class="t-string">"Chapter One"</span>,
+        excerpt = excerptParagraphs,
+        chapter = chapterParagraphs,
+        resumeAfter = <span class="t-string">"On the bench lay a watch with no face"</span>,
+    )</code></pre>
+    </div>
+        </section>
+    <section>
+          <h2>Demo source</h2>
+    <div class="block">
+      <div class="label"><span>Kotlin</span><button class="copy" data-copy="demo">Copy</button></div>
+      <pre><code id="demo"><span class="t-type">ShowcaseSection</span>(<span class="t-string">"Reader card"</span>, contentPadding = <span class="t-type">PaddingValues</span>(<span class="t-number">0</span>.dp)) {
+        <span class="t-type">ComposeKitReaderCard</span>(
+            title = <span class="t-string">"The Clockmaker's Apprentice"</span>,
+            chapterLabel = <span class="t-string">"Chapter One"</span>,
+            meta = <span class="t-string">"Demo content"</span>,
+            excerpt = <span class="t-type">SampleExcerpt</span>,
+            chapter = <span class="t-type">SampleChapter</span>,
+            resumeAfter = <span class="t-type">ResumeSnippet</span>,
+            modifier = <span class="t-type">Modifier</span>.fillMaxWidth().height(<span class="t-number">640</span>.dp),
+        )
+    }</code></pre>
+    </div>
+          <p class="note">This is the block the demo app renders, so it is what produced the preview above.</p>
+        </section>
+    <section>
+          <h2>Parameters</h2>
+          <table class="props">
+            <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+            <tbody>
+            <tr><td><code>title</code></td><td class="type"><code>String</code></td><td>—</td><td>heading on both the card and the reader.</td></tr>
+            <tr><td><code>excerpt</code></td><td class="type"><code>List&lt;String&gt;</code></td><td>—</td><td>paragraphs shown scrolling inside the card.</td></tr>
+            <tr><td><code>chapter</code></td><td class="type"><code>List&lt;String&gt;</code></td><td>—</td><td>paragraphs of the reader body.</td></tr>
+            <tr><td><code>modifier</code></td><td class="type"><code>Modifier</code></td><td><code>Modifier</code></td><td>—</td></tr>
+            <tr><td><code>chapterLabel</code></td><td class="type"><code>String</code></td><td><code>"Chapter One"</code></td><td>small centred label above the body, e.g. <code>"Chapter One"</code>.</td></tr>
+            <tr><td><code>meta</code></td><td class="type"><code>String?</code></td><td><code>null</code></td><td>optional line under the reader title, e.g. <code>"Demo content"</code>.</td></tr>
+            <tr><td><code>resumeAfter</code></td><td class="type"><code>String?</code></td><td><code>null</code></td><td>snippet from <code>chapter</code> the card is showing. The reader opens scrolled to that paragraph and flashes the highlight from the snippet to the paragraph's end. Ignored when null.</td></tr>
+            <tr><td><code>darkTheme</code></td><td class="type"><code>Boolean</code></td><td><code>isSystemInDarkTheme()</code></td><td>use the dark palette; defaults to the system setting.</td></tr>
+            <tr><td><code>sceneHeight</code></td><td class="type"><code>Dp</code></td><td><code>640.dp</code></td><td>height of the whole scene when the caller's modifier does not set one.</td></tr>
+            <tr><td><code>onOpenChange</code></td><td class="type"><code>(Boolean) -&gt; Unit</code></td><td><code>{}</code></td><td>called with <code>true</code> once the reader is open, <code>false</code> when it closes.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+    <footer>Source: <code>ComposeKitReaderCard.kt</code> · <a href="https://github.com/DrNitz/compose-uikit">GitHub</a></footer>
+  </div>
+  <script src="../app.js"></script>
+</body>
+</html>
