@@ -1,5 +1,9 @@
 # Compose UI Kit
 
+[![Build](https://github.com/DrNitz/compose-uikit/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/DrNitz/compose-uikit/actions/workflows/build.yml)
+
+Live page: <https://drnitz.github.io/compose-uikit/>
+
 A small, reusable Jetpack Compose component library with a live demo app.
 Components are written once and shared: other developers add a dependency, you install
 the demo APK on your phone, and the same component code feeds both.
